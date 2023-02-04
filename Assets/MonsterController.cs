@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum PartType
@@ -20,10 +22,23 @@ public class MonsterController : MonoBehaviour
     public int partCount = 0;
     public int maxPartCount = 4;
 
+    public Transform statsHolder;
+    
     public void Init()
     {
         partCount = 0;
     }
+
+    private void Update()
+    {
+        int index = 0;
+        foreach (var statText in statsHolder.GetComponentsInChildren<TMP_Text>())
+        {
+            statText.text = currentStats[index].statType.ToString() + ": " +currentStats[index].statValue.ToString();
+            index++;
+        }
+    }
+
     public bool TryAddPart(MonsterPartData monsterPartData)
     {
         Debug.Log("Called 1.5");
