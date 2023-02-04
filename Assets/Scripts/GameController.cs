@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public GameState currentState;
     public PurchaserController purchaserController;
     public MonsterController monsterController;
-    
+    public VillageDataController villageDataController;
     private void Awake()
     {
         if (Instance == null)
@@ -35,5 +35,12 @@ public class GameController : MonoBehaviour
     public void Attack()
     {
         currentState = GameState.Fighting;
+        villageDataController.AttackVillage(monsterController);
+    }
+
+    public void NextCycleStarted()
+    {
+        currentState = GameState.Growing;
+        monsterController.Reset();
     }
 }

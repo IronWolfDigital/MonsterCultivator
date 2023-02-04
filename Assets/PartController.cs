@@ -135,6 +135,14 @@ public class PartController : MonoBehaviour
         mask.enabled = false;
         spawnedGameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
     }
+
+    public void DestroyObject()
+    {
+        if (spawnedGameObject != null)
+        {
+            Destroy(spawnedGameObject);
+        }
+    }
     
     public void UnequipPart()
     {
@@ -158,7 +166,7 @@ public class PartController : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        DestroyObject();
     }
     
     
