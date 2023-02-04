@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -47,7 +49,6 @@ public class PartController : MonoBehaviour
     private void SetupPartLocation(PartObjectHolder partObjectHolder)
     {
         var snapData = partObjectHolder.gameObject.GetComponent<PartLocationSnapData>();
-
         Vector3 requiredPosition = Vector3.zero;
 
         foreach (var partLocation in GetComponentsInChildren<PartLocationSnapData>())
@@ -120,8 +121,21 @@ public class PartController : MonoBehaviour
         }
 
         spawnedGameObject = Instantiate(partObjectHolder.gameObject, requiredPosition, Quaternion.identity, transform);
+        
+        spawnedGameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+        var mask = spawnedGameObject.GetComponentInChildren<SpriteMask>();
+        mask.enabled = true;
+        mask.transform.DOMoveY(mask.transform.position.y - 150, 3f).SetEase(Ease.Linear);
+        Invoke(nameof(DisableMaskInteraction), 0.4f);
     }
-    
+
+    private void DisableMaskInteraction()
+    {
+        var mask = spawnedGameObject.GetComponentInChildren<SpriteMask>();
+        mask.enabled = false;
+        spawnedGameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
+    }
+
     public void UnequipPart()
     {
         foreach (var stat in monsterPartData.statModifiers)
