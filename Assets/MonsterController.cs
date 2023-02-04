@@ -21,7 +21,8 @@ public class MonsterController : MonoBehaviour
     public List<Stats> currentStats = new List<Stats>();
     public int partCount = 0;
     public int maxPartCount = 4;
-
+    public string monsterName;
+    
     public Transform statsHolder;
     
     public void Init()
@@ -52,6 +53,22 @@ public class MonsterController : MonoBehaviour
         return true;
     }
 
+    public void DeleteVisuals()
+    {
+        foreach (var part in partControllers)
+        {
+            part.DestroyObject();
+        }
+    }
+
+    public void Reset()
+    {
+        for (int i = 0; i < partCount; i++)
+        {
+            TryUndoPart();
+        }
+    }
+    
     public void TryUndoPart()
     {
         if (partCount <= 0) return;

@@ -2,14 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VillageDataController : MonoBehaviour
 {
     public VillagesHolder villagesHolder;
     public int villageIndex;
     public int villageStatsSum = 0;
-
+    public VillageAttackInfoDisplayController villageAttackInfoDisplayController;
+    public TMP_InputField monsterName;
     private void Update()
     {
         #if UNITY_EDITOR
@@ -67,6 +70,16 @@ public class VillageDataController : MonoBehaviour
         }
         
         Debug.Log($"Villagers killed {totalVillagersKilled} / {villagesHolder.GetVillages()[villageIndex].villagersCount}");
+        monsterController.monsterName = monsterName.text;
+
+        if (totalVillagersKilled >= villagesHolder.GetVillages()[villageIndex].villagersCount)
+        {
+            villageIndex++;
+        }
+
+        int soulsGained = (int)totalVillagersKilled * 3;
+        
+        villageAttackInfoDisplayController.StartAnimation(monsterController, totalVillagersKilled, villagesHolder.GetVillages()[villageIndex].villagersCount, soulsGained,villagesHolder.GetVillages()[villageIndex].villageName );
         //nuspresti, kaip totalStatDifference itakoja, kiek zmoniu suvalgei.... apskaiciuoti rewardus
     }
 }
