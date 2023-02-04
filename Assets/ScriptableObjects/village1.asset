@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: village1
   m_EditorClassIdentifier: 
   villageName: 
-  villagersCount: 0
-  villageStrength: 0
-  villageAgility: 0
-  villageVitality: 0
+  stats:
+  - statType: 1
+    statValue: 1
