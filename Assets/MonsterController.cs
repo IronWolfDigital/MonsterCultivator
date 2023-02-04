@@ -18,29 +18,32 @@ public class MonsterController : MonoBehaviour
     public List<PartController> partControllers = new List<PartController>();
     public List<Stats> currentStats = new List<Stats>();
     public int partCount = 0;
-    public int maxPartCount = 5;
+    public int maxPartCount = 4;
 
+    public void Init()
+    {
+        partCount = 0;
+    }
     public bool TryAddPart(MonsterPartData monsterPartData)
     {
-        if (partCount >= maxPartCount) return false;
-
-        //Check price and remove money;
-        
+        Debug.Log("Called 1.5");
+        if (partCount > maxPartCount) return false;
+        Debug.Log("Called 2");
         var newPartController = gameObject.AddComponent<PartController>();
         partControllers.Add(newPartController);
         newPartController.EquipPart(this, monsterPartData, monsterPartData.partObjectHolders[partCount]);
         monsterPartData.currentPrice += monsterPartData.priceIncrease;
-        
         partCount++;
         
         return true;
     }
 
-    public void UndoPart()
+    public void TryUndoPart()
     {
+        if (partCount <= 0) return;
+        PurchaserController.Instance.soulsCount += partControllers[partCount].monsterPartData.currentPrice;
         partControllers[partCount].UnequipPart();
         Destroy(partControllers[partCount]);
-        //Add money from the part;
         partControllers.RemoveAt(partCount);
         partCount--;
     }

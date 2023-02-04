@@ -5,8 +5,30 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private void Update()
+    public static GameController Instance;
+    public enum GameState {Growing, Fighting}
+
+    public GameState currentState;
+    public PurchaserController purchaserController;
+    public MonsterController monsterController;
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.Log("Destroying gameobject");
+            Destroy(gameObject);   
+        }
     }
+
+    private void Start()
+    {
+        currentState = GameState.Growing;
+        purchaserController.Init();
+        monsterController.Init();
+    }
+    
 }

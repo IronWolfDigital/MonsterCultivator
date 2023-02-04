@@ -1,1 +1,1 @@
-﻿public enum StatType {STR, VITALITY, INT, SPD}
+﻿public enum StatType {STRENGTH, VITALITY, INTELLIGENCE, AGILITY}

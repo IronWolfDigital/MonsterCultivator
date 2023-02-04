@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MonsterPartData : MonoBehaviour
@@ -10,9 +11,20 @@ public class MonsterPartData : MonoBehaviour
     public int priceIncrease;
     public int currentPrice;
     public PartObjectName partObjectName;
-
+    public TMP_Text costDisplay;
     private void OnEnable()
     {
         currentPrice = initialPrice;
+    }
+    
+    private void OnMouseDown()
+    {
+        Debug.Log("cLICKED");
+        PurchaserController.Instance.TryPurchasingObjectPart(this);
+    }
+
+    private void Update()
+    {
+        costDisplay.text = currentPrice.ToString();
     }
 }
