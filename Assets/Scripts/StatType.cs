@@ -1,0 +1,1 @@
+﻿public enum StatType {STR, VITALITY, INT, SPD}
