@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public GameState currentState;
     public PurchaserController purchaserController;
     public MonsterController monsterController;
+    
     private void Awake()
     {
         if (Instance == null)
