@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5151645766396624871}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.359999, y: 52.225, z: 0}
+  m_LocalPosition: {x: 0.2, y: 73.16, z: 0}
   m_LocalScale: {x: 2.07055, y: 2.42885, z: 1.9488}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177,6 +177,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8998788294036238243}
   - component: {fileID: 8998788294036238240}
+  - component: {fileID: -4511600673501337044}
+  - component: {fileID: 6716095425981156694}
   m_Layer: 0
   m_Name: Agurkinis_Leg_R_Snap
   m_TagString: Untagged
@@ -217,3 +219,36 @@ MonoBehaviour:
   startingSnap:
     snapPoint: 10
     snapPointLocation: {fileID: 8998788294036238243}
+--- !u!50 &-4511600673501337044
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8998788294036238242}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &6716095425981156694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8998788294036238242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4b270199f18c545a3f0c79d4b48c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

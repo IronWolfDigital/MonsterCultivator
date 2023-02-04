@@ -65,17 +65,17 @@ public class MonsterController : MonoBehaviour
     {
         for (int i = 0; i < partCount; i++)
         {
-            TryUndoPart();
+            TryUndoPart(false);
         }
     }
     
-    public void TryUndoPart()
+    public void TryUndoPart(bool useforce = true)
     {
         if (partCount <= 0) return;
         partControllers[partCount-1].monsterPartData.currentPrice -=
             partControllers[partCount-1].monsterPartData.priceIncrease;
         PurchaserController.Instance.soulsCount += partControllers[partCount-1].monsterPartData.currentPrice;
-        partControllers[partCount-1].UnequipPart();
+        partControllers[partCount-1].UnequipPart(useforce);
         Destroy(partControllers[partCount-1]);
         partControllers.RemoveAt(partCount-1);
         partCount--;
