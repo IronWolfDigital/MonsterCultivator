@@ -47,7 +47,6 @@ public class MonsterController : MonoBehaviour
         var newPartController = gameObject.AddComponent<PartController>();
         partControllers.Add(newPartController);
         newPartController.EquipPart(this, monsterPartData, monsterPartData.partObjectHolders[partCount]);
-        monsterPartData.currentPrice += monsterPartData.priceIncrease;
         partCount++;
         
         return true;
@@ -56,10 +55,12 @@ public class MonsterController : MonoBehaviour
     public void TryUndoPart()
     {
         if (partCount <= 0) return;
-        PurchaserController.Instance.soulsCount += partControllers[partCount].monsterPartData.currentPrice;
-        partControllers[partCount].UnequipPart();
-        Destroy(partControllers[partCount]);
-        partControllers.RemoveAt(partCount);
+        partControllers[partCount-1].monsterPartData.currentPrice -=
+            partControllers[partCount-1].monsterPartData.priceIncrease;
+        PurchaserController.Instance.soulsCount += partControllers[partCount-1].monsterPartData.currentPrice;
+        partControllers[partCount-1].UnequipPart();
+        Destroy(partControllers[partCount-1]);
+        partControllers.RemoveAt(partCount-1);
         partCount--;
     }
 }

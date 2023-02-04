@@ -42,6 +42,7 @@ public class PurchaserController : MonoBehaviour
         {
             Debug.Log("cALLED 3");
             soulsCount -= monsterPartData.currentPrice;
+            monsterPartData.currentPrice += monsterPartData.priceIncrease;
         }
 
     }
