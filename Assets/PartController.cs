@@ -17,8 +17,6 @@ public class PartController : MonoBehaviour
         this.monsterController = monsterController;
         this.partType = partObjectHolder.partType;
         
-        
-        
         foreach (var stat in monsterPartData.statModifiers)
         {
             if(monsterController.currentStats.Exists(x => x.statType == stat.statType))
@@ -39,7 +37,7 @@ public class PartController : MonoBehaviour
             if(monsterController.currentStats.Exists(x => x.statType == stat.statType))
             {
                 var requiredStat = monsterController.currentStats.First(x => x.statType == stat.statType);
-                requiredStat.statValue += stat.statModifier;
+                requiredStat.statValue -= stat.statModifier;
             }
         }
 
