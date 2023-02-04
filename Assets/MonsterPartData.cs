@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -18,6 +17,8 @@ public class MonsterPartData : MonoBehaviour
     public Sprite lockedSprite;
     public Sprite unlockedSprite;
     public SpriteRenderer spriteRenderer;
+
+    public List<StatMultiplication> statMultiplications;
     private void OnEnable()
     {
         currentPrice = initialPrice;

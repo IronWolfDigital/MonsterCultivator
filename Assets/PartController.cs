@@ -24,7 +24,18 @@ public class PartController : MonoBehaviour
             if(monsterController.currentStats.Exists(x => x.statType == stat.statType))
             {
                 var requiredStat = monsterController.currentStats.First(x => x.statType == stat.statType);
-                requiredStat.statValue += stat.statModifier;
+
+                var statMultiplier = 1f;
+                
+                foreach (var statMultiplierData in this.monsterPartData.statMultiplications)
+                {
+                    if (statMultiplierData.statType == requiredStat.statType)
+                    {
+                        statMultiplier = statMultiplierData.multiplication;
+                    }
+                }
+                
+                requiredStat.statValue += (int) (stat.statModifier * statMultiplier) ;
             }
         }
         
@@ -118,7 +129,18 @@ public class PartController : MonoBehaviour
             if(monsterController.currentStats.Exists(x => x.statType == stat.statType))
             {
                 var requiredStat = monsterController.currentStats.First(x => x.statType == stat.statType);
-                requiredStat.statValue -= stat.statModifier;
+
+                var statMultiplier = 1f;
+                
+                foreach (var statMultiplierData in this.monsterPartData.statMultiplications)
+                {
+                    if (statMultiplierData.statType == requiredStat.statType)
+                    {
+                        statMultiplier = statMultiplierData.multiplication;
+                    }
+                }
+                
+                requiredStat.statValue -= (int)(stat.statModifier * statMultiplier);
             }
         }
         

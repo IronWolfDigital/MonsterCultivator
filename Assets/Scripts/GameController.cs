@@ -30,5 +30,9 @@ public class GameController : MonoBehaviour
         purchaserController.Init();
         monsterController.Init();
     }
-    
+
+    public void Attack()
+    {
+        currentState = GameState.Fighting;
+    }
 }

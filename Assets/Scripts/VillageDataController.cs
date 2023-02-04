@@ -12,39 +12,61 @@ public class VillageDataController : MonoBehaviour
 
     private void Update()
     {
+        #if UNITY_EDITOR
         if(Input.GetKeyDown(KeyCode.K))
         {
             List<Stats> sortedStats = SortVillageStatsByType(villageIndex);
         }
+        #endif
     }
 
     public List<Stats> SortVillageStatsByType(int villageIndex)
     {
         List<Stats> sortedStats = villagesHolder.GetVillages()[villageIndex].stats.OrderByDescending(o => o.statValue).ToList();
-        villageStatsSum = 0;
-
-        foreach (var stat in sortedStats)
-        {
-            villageStatsSum += stat.statValue;
-            Debug.Log(stat.statType + ": " + stat.statValue);
-        }
         return sortedStats;
     }
-
-
-
+    
     public void AttackVillage(MonsterController monsterController)
     {
-        int totalStatDifference = 0;
-        
-        foreach (var stat in villagesHolder.GetVillages()[0].stats)
+        int totalVillagersKilled = 0;
+        var villageStatsSorted = SortVillageStatsByType(villageIndex);
+
+        for (int i = 0; i < villageStatsSorted.Count; i++) //going from the biggest stats to lowest
         {
-            if(monsterController.currentStats.Exists(x => x.statType == stat.statType))
+            switch (i)
             {
-                var requiredStat = monsterController.currentStats.First(x => x.statType == stat.statType);
-                totalStatDifference += (Math.Abs(requiredStat.statValue - stat.statValue));
+                case 0:
+                    var requiredMonsterStat =
+                        monsterController.currentStats.First(x => x.statType == villageStatsSorted[i].statType);
+
+                    totalVillagersKilled += (int)(villagesHolder.GetVillages()[villageIndex].villagersCount  * 0.4 +
+                                            (requiredMonsterStat.statValue - villageStatsSorted[i].statValue) * 0.5);
+                    break;
+                case 1:
+                    var requiredMonsterStatSecond =
+                        monsterController.currentStats.First(x => x.statType == villageStatsSorted[i].statType);
+
+                    totalVillagersKilled += (int)(villagesHolder.GetVillages()[villageIndex].villagersCount  * 0.3 +
+                                                  (requiredMonsterStatSecond.statValue - villageStatsSorted[i].statValue) * 0.25);
+                    break;
+                case 2:
+                    var requiredMonsterStatThird =
+                        monsterController.currentStats.First(x => x.statType == villageStatsSorted[i].statType);
+
+                    totalVillagersKilled += (int)(villagesHolder.GetVillages()[villageIndex].villagersCount  * 0.2 +
+                                                  (requiredMonsterStatThird.statValue - villageStatsSorted[i].statValue) * 0.2);
+                    break;
+                case 3:
+                    var requiredMonsterStatFourth =
+                        monsterController.currentStats.First(x => x.statType == villageStatsSorted[i].statType);
+
+                    totalVillagersKilled += (int)(villagesHolder.GetVillages()[villageIndex].villagersCount  * 0.1 + 
+                                                  (requiredMonsterStatFourth.statValue - villageStatsSorted[i].statValue) * 0.05);
+                    break;
             }
         }
+        
+        Debug.Log($"Villagers killed {totalVillagersKilled} / {villagesHolder.GetVillages()[villageIndex].villagersCount}");
         //nuspresti, kaip totalStatDifference itakoja, kiek zmoniu suvalgei.... apskaiciuoti rewardus
     }
 }

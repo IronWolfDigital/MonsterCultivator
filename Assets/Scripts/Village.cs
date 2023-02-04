@@ -7,7 +7,7 @@ public class Village : ScriptableObject
 {
     public string villageName;
     public List<Stats> stats;
-
+    public int villagersCount;
     public void AddStat(StatType type, int value)
     {
         Stats stat = new Stats

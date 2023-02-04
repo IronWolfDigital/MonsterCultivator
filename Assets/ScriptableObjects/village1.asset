@@ -14,5 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   villageName: 
   stats:
+  - statType: 0
+    statValue: 20
   - statType: 1
-    statValue: 1
+    statValue: 20
+  - statType: 2
+    statValue: 3
+  - statType: 3
+    statValue: 5
+  villagersCount: 50
