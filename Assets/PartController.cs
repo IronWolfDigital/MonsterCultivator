@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Random = UnityEngine.Random;
 
 
 // Represents current Live Part on a monster
@@ -50,7 +51,8 @@ public class PartController : MonoBehaviour
     {
         var snapData = partObjectHolder.gameObject.GetComponent<PartLocationSnapData>();
         Vector3 requiredPosition = Vector3.zero;
-
+        partLocationSnapData = snapData;
+        
         foreach (var partLocation in GetComponentsInChildren<PartLocationSnapData>())
         {
             switch (snapData.startingSnap.snapPoint)
@@ -144,7 +146,7 @@ public class PartController : MonoBehaviour
         }
     }
     
-    public void UnequipPart()
+    public void UnequipPart(bool useForce = true)
     {
         foreach (var stat in monsterPartData.statModifiers)
         {
@@ -166,7 +168,23 @@ public class PartController : MonoBehaviour
             }
         }
 
-        DestroyObject();
+        if (useForce)
+        {
+            //do rigidbody
+            if (spawnedGameObject != null)
+            {
+                var rb = spawnedGameObject.GetComponent<Rigidbody2D>();
+                rb.isKinematic = false;
+                rb.AddForce(new Vector3(Random.Range(-6f, 6f), Random.Range(0.5f, 1.2f), 0f), ForceMode2D.Impulse);
+                rb.AddTorque(Random.Range(-3, 3), ForceMode2D.Impulse);
+            }
+        }
+        else
+        {
+            DestroyObject();
+        }
+        
+        
     }
     
     

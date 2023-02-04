@@ -8,6 +8,6 @@ public class UndoButton : MonoBehaviour
     public MonsterController monsterController;
     private void OnMouseDown()
     {
-        monsterController.TryUndoPart();
+        monsterController.TryUndoPart(true);
     }
 }
