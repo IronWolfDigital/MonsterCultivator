@@ -135,7 +135,7 @@ public class PartController : MonoBehaviour
         mask.enabled = false;
         spawnedGameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
     }
-
+    
     public void UnequipPart()
     {
         foreach (var stat in monsterPartData.statModifiers)
@@ -157,10 +157,9 @@ public class PartController : MonoBehaviour
                 requiredStat.statValue -= (int)(stat.statModifier * statMultiplier);
             }
         }
-        
-        Destroy(spawnedGameObject);
+
+        Destroy(gameObject);
     }
-
-
+    
     
 }
