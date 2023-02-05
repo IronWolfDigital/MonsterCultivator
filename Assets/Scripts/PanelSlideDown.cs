@@ -13,6 +13,8 @@ public class PanelSlideDown : MonoBehaviour
     [SerializeField] private Vector2 endPos;
     private bool isSlidedDown = false;
 
+    private static PanelSlideDown openPanel;
+
     private void Start()
     {
         startPos = panel.anchoredPosition;
@@ -22,17 +24,47 @@ public class PanelSlideDown : MonoBehaviour
 
     private void ToggleSlide()
     {
+        if (openPanel != null)
+        {
+            Debug.Log(openPanel.gameObject.name);
+        }
+        
+        if (openPanel != null && openPanel.gameObject.GetInstanceID() != this.gameObject.GetInstanceID())
+        {
+            Debug.Log("cALLED");
+            openPanel.ClosePanel();
+        }
+
         if (isSlidedDown)
         {
-            panel.DOAnchorPos(startPos, slideDuration).SetEase(Ease.OutQuint);
-            canvasGroup.DOFade(0, slideDuration).SetEase(Ease.OutQuint);
-            isSlidedDown = false;
+            ClosePanel();
         }
         else
         {
-            canvasGroup.DOFade(1, slideDuration).SetEase(Ease.OutQuint);
-            panel.DOAnchorPos(endPos, slideDuration).SetEase(Ease.OutQuint);
-            isSlidedDown = true;
+            OpenPanel();
         }
+    }
+
+    private void OpenPanel()
+    {
+        canvasGroup.DOFade(1, slideDuration).SetEase(Ease.OutQuint);
+        panel.DOAnchorPos(endPos, slideDuration).SetEase(Ease.OutQuint);
+        openPanel = this;
+        isSlidedDown = true;
+    }
+
+    private void ClosePanel()
+    {
+        panel.DOAnchorPos(startPos, slideDuration).SetEase(Ease.OutQuint);
+        canvasGroup.DOFade(0, slideDuration).SetEase(Ease.OutQuint);
+        openPanel = null;
+        isSlidedDown = false;
+    }
+    private void ClosePanelWithoutEase()
+    {
+        panel.DOAnchorPos(startPos, slideDuration).SetEase(Ease.OutQuint);
+        canvasGroup.alpha = 0;
+        openPanel = null;
+        isSlidedDown = false;
     }
 }

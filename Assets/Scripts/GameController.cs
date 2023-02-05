@@ -43,4 +43,9 @@ public class GameController : MonoBehaviour
         currentState = GameState.Growing;
         monsterController.Reset();
     }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.A)) { Attack(); }
+    }
 }
