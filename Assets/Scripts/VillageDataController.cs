@@ -68,6 +68,9 @@ public class VillageDataController : MonoBehaviour
                     break;
             }
         }
+
+        totalVillagersKilled =
+            Mathf.Min(totalVillagersKilled, villagesHolder.GetVillages()[villageIndex].villagersCount);
         
         Debug.Log($"Villagers killed {totalVillagersKilled} / {villagesHolder.GetVillages()[villageIndex].villagersCount}");
         //monsterController.monsterName = monsterName.text;
@@ -79,7 +82,8 @@ public class VillageDataController : MonoBehaviour
 
         int soulsGained = (int)totalVillagersKilled * 3;
         
-        villageAttackInfoDisplayController.StartAnimation(monsterController, totalVillagersKilled, villagesHolder.GetVillages()[villageIndex].villagersCount, soulsGained,villagesHolder.GetVillages()[villageIndex].villageName );
-        //nuspresti, kaip totalStatDifference itakoja, kiek zmoniu suvalgei.... apskaiciuoti rewardus
+        villageAttackInfoDisplayController.StartAnimation(monsterController, totalVillagersKilled, 
+            villagesHolder.GetVillages()[villageIndex].villagersCount, 
+            soulsGained,villagesHolder.GetVillages()[villageIndex].villageName, villageIndex);
     }
 }

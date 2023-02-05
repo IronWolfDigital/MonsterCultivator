@@ -15,7 +15,6 @@ public class AttackButton : MonoBehaviour
     public GameController gameController;
     private bool buttonFaded = false;
 
-
     private void Start()
     {
         button.onClick.AddListener(ButtonClicked);
