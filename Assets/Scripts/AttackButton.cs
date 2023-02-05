@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Runtime.CompilerServices;
+using TMPro;
 
 public class AttackButton : MonoBehaviour
 {
     public Button button;
-    public float fadeDuration = 1f;
+    public float iconFadeDuration = 1f;
+    public float textFadeDuration = 1f;
     public MonsterController monsterController;
     public GameController gameController;
     private bool buttonFaded = false;
@@ -30,15 +32,17 @@ public class AttackButton : MonoBehaviour
             buttonFaded = true;
             button.GetComponent<CanvasRenderer>().SetAlpha(0f);
             button.interactable = false;
-            button.image.DOFade(1f, fadeDuration).OnComplete(() =>
+            button.image.DOFade(1f, iconFadeDuration).OnComplete(() =>
             {
                 button.interactable = true;
             });
+            button.GetComponentInChildren<TMP_Text>().DOFade(1f, textFadeDuration);
         }
         else if(monsterController.partCount != monsterController.maxPartCount)
         {
             buttonFaded = false;
-            button.image.DOFade(0f, fadeDuration).OnComplete(() =>
+            button.GetComponentInChildren<TMP_Text>().DOFade(0f, textFadeDuration);
+            button.image.DOFade(0f, iconFadeDuration).OnComplete(() =>
             {
                 button.interactable = false;
             });
