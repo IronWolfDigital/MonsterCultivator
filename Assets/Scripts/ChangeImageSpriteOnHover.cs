@@ -8,19 +8,16 @@ public class ChangeImageSpriteOnHover : MonoBehaviour, IPointerEnterHandler, IPo
     public Image image;
     public Sprite normalSprite;
     public Sprite hoverSprite;
-    //PointerEventData cachedEventData;
 
     private void OnPointerEnter(PointerEventData eventData)
     {
         var spriteState = new SpriteState();
         spriteState.highlightedSprite = hoverSprite;
         button.spriteState = spriteState;
-        //cachedEventData = eventData;
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        //throw new System.NotImplementedException();
         var spriteState = new SpriteState();
         spriteState.highlightedSprite = hoverSprite;
         button.spriteState = spriteState;
@@ -28,7 +25,6 @@ public class ChangeImageSpriteOnHover : MonoBehaviour, IPointerEnterHandler, IPo
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        //throw new System.NotImplementedException();
         var spriteState = new SpriteState();
         spriteState.highlightedSprite = hoverSprite;
         button.spriteState = spriteState;
@@ -39,11 +35,5 @@ public class ChangeImageSpriteOnHover : MonoBehaviour, IPointerEnterHandler, IPo
         var spriteState = new SpriteState();
         spriteState.highlightedSprite = normalSprite;
         button.spriteState = spriteState;
-        //cachedEventData = eventData;
-    }
-
-    private void Update()
-    {
-       // var btnState = cachedEventData 
     }
 }

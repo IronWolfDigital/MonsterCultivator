@@ -15,10 +15,8 @@ public class PanelSlideDown : MonoBehaviour
 
     private void Start()
     {
-        // Get the starting and end positions of the panel
         startPos = panel.anchoredPosition;
 
-        // Add an OnClick listener to the button
         imageButton.onClick.AddListener(ToggleSlide);
     }
 
@@ -26,17 +24,13 @@ public class PanelSlideDown : MonoBehaviour
     {
         if (isSlidedDown)
         {
-            // Slide the panel back up
             panel.DOAnchorPos(startPos, slideDuration).SetEase(Ease.OutQuint);
-            // Hide the panel by fading out the canvas group
             canvasGroup.DOFade(0, slideDuration).SetEase(Ease.OutQuint);
             isSlidedDown = false;
         }
         else
         {
-            // Show the panel by fading in the canvas group
             canvasGroup.DOFade(1, slideDuration).SetEase(Ease.OutQuint);
-            // Slide the panel down
             panel.DOAnchorPos(endPos, slideDuration).SetEase(Ease.OutQuint);
             isSlidedDown = true;
         }
