@@ -16,20 +16,22 @@ public class PartController : MonoBehaviour
     public GameObject spawnedGameObject;
     public PartLocationSnapData partLocationSnapData;
     public int pricePaid;
-    public void EquipPart(MonsterController monsterController, MonsterPartData monsterPartData, PartObjectHolder partObjectHolder)
+
+    public void EquipPart(MonsterController monsterController, MonsterPartData monsterPartData,
+        PartObjectHolder partObjectHolder)
     {
         this.monsterPartData = monsterPartData;
         this.monsterController = monsterController;
         this.partType = partObjectHolder.partType;
-        
+
         foreach (var stat in monsterPartData.statModifiers)
         {
-            if(monsterController.currentStats.Exists(x => x.statType == stat.statType))
+            if (monsterController.currentStats.Exists(x => x.statType == stat.statType))
             {
                 var requiredStat = monsterController.currentStats.First(x => x.statType == stat.statType);
 
                 var statMultiplier = 1f;
-                
+
                 foreach (var statMultiplierData in this.monsterPartData.statMultiplications)
                 {
                     if (statMultiplierData.statType == requiredStat.statType)
@@ -37,14 +39,13 @@ public class PartController : MonoBehaviour
                         statMultiplier = statMultiplierData.multiplication;
                     }
                 }
-                
-                requiredStat.statValue += (int) (stat.statModifier * statMultiplier) ;
+
+                requiredStat.statValue += (int)(stat.statModifier * statMultiplier);
             }
         }
-        
+
         SetupPartLocation(partObjectHolder);
         //Instantiate GO, get part location snap Data
-
     }
 
     private void SetupPartLocation(PartObjectHolder partObjectHolder)
@@ -52,7 +53,7 @@ public class PartController : MonoBehaviour
         var snapData = partObjectHolder.gameObject.GetComponent<PartLocationSnapData>();
         Vector3 requiredPosition = Vector3.zero;
         partLocationSnapData = snapData;
-        
+
         foreach (var partLocation in GetComponentsInChildren<PartLocationSnapData>())
         {
             switch (snapData.startingSnap.snapPoint)
@@ -66,6 +67,7 @@ public class PartController : MonoBehaviour
                             .First(x => x.snapPoint == PartLocationSnapData.SnapPoints.Starter_Head).snapPointLocation
                             .position;
                     }
+
                     break;
                 case PartLocationSnapData.SnapPoints.Head_Torso:
                     break;
@@ -84,6 +86,7 @@ public class PartController : MonoBehaviour
                             .First(x => x.snapPoint == PartLocationSnapData.SnapPoints.Torso_LARM).snapPointLocation
                             .position;
                     }
+
                     break;
                 case PartLocationSnapData.SnapPoints.RARM_Torso:
                     if (partLocation.snapData.Exists(x => x.snapPoint == PartLocationSnapData.SnapPoints.Torso_RARM))
@@ -92,6 +95,7 @@ public class PartController : MonoBehaviour
                             .First(x => x.snapPoint == PartLocationSnapData.SnapPoints.Torso_RARM).snapPointLocation
                             .position;
                     }
+
                     break;
                 case PartLocationSnapData.SnapPoints.LLEG_Torso:
                     if (partLocation.snapData.Exists(x => x.snapPoint == PartLocationSnapData.SnapPoints.Torso_LLEG))
@@ -100,6 +104,7 @@ public class PartController : MonoBehaviour
                             .First(x => x.snapPoint == PartLocationSnapData.SnapPoints.Torso_LLEG).snapPointLocation
                             .position;
                     }
+
                     break;
                 case PartLocationSnapData.SnapPoints.RLEG_Torso:
                     if (partLocation.snapData.Exists(x => x.snapPoint == PartLocationSnapData.SnapPoints.Torso_RLEG))
@@ -108,6 +113,7 @@ public class PartController : MonoBehaviour
                             .First(x => x.snapPoint == PartLocationSnapData.SnapPoints.Torso_RLEG).snapPointLocation
                             .position;
                     }
+
                     break;
                 case PartLocationSnapData.SnapPoints.Torso_Head:
                     if (partLocation.snapData.Exists(x => x.snapPoint == PartLocationSnapData.SnapPoints.Head_Torso))
@@ -116,19 +122,35 @@ public class PartController : MonoBehaviour
                             .First(x => x.snapPoint == PartLocationSnapData.SnapPoints.Head_Torso).snapPointLocation
                             .position;
                     }
+
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
-        spawnedGameObject = Instantiate(partObjectHolder.gameObject, requiredPosition, Quaternion.identity, transform);
-        
-        spawnedGameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
-        var mask = spawnedGameObject.GetComponentInChildren<SpriteMask>();
-        mask.enabled = true;
-        mask.transform.DOMoveY(mask.transform.position.y - 150, 3f).SetEase(Ease.Linear);
-        Invoke(nameof(DisableMaskInteraction), 0.4f);
+        spawnedGameObject = Instantiate(partObjectHolder.gameObject, requiredPosition, Quaternion.identity, transform.Find("HeadStarter"));
+        //spawnedGameObject.GetComponentInChildren<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
+
+        float fadeValue = 0;
+
+        var material = spawnedGameObject.GetComponentInChildren<SpriteRenderer>().material;
+        DOTween.To(() => fadeValue, x => fadeValue = x, 7f, 1f)
+            .OnUpdate(() => { material.SetFloat("Vector1_51DDBE76", fadeValue); }).OnComplete(() => DOTween
+                .To(() => fadeValue, x => fadeValue = x, 15f, 1f)
+                .OnUpdate(() => { material.SetFloat("Vector1_51DDBE76", fadeValue); })).OnComplete(() => DOTween
+                .To(() => fadeValue, x => fadeValue = x, 30f, 1f)
+                .OnUpdate(() => { material.SetFloat("Vector1_51DDBE76", fadeValue); })).OnComplete(() => DOTween
+                .To(() => fadeValue, x => fadeValue = x, 100f, 1f)
+                .OnUpdate(() =>
+                {
+                    material.SetFloat("Vector1_51DDBE76", fadeValue);
+                }));
+
+        //var mask = spawnedGameObject.GetComponentInChildren<SpriteMask>();
+        //mask.enabled = true;
+        //mask.transform.DOMoveY(mask.transform.position.y - 150, 3f).SetEase(Ease.Linear);
+        //Invoke(nameof(DisableMaskInteraction), 0.4f);
     }
 
     private void DisableMaskInteraction()
@@ -145,17 +167,17 @@ public class PartController : MonoBehaviour
             Destroy(spawnedGameObject);
         }
     }
-    
+
     public void UnequipPart(bool useForce = true)
     {
         foreach (var stat in monsterPartData.statModifiers)
         {
-            if(monsterController.currentStats.Exists(x => x.statType == stat.statType))
+            if (monsterController.currentStats.Exists(x => x.statType == stat.statType))
             {
                 var requiredStat = monsterController.currentStats.First(x => x.statType == stat.statType);
 
                 var statMultiplier = 1f;
-                
+
                 foreach (var statMultiplierData in this.monsterPartData.statMultiplications)
                 {
                     if (statMultiplierData.statType == requiredStat.statType)
@@ -163,7 +185,7 @@ public class PartController : MonoBehaviour
                         statMultiplier = statMultiplierData.multiplication;
                     }
                 }
-                
+
                 requiredStat.statValue -= (int)(stat.statModifier * statMultiplier);
             }
         }
@@ -183,9 +205,5 @@ public class PartController : MonoBehaviour
         {
             DestroyObject();
         }
-        
-        
     }
-    
-    
 }

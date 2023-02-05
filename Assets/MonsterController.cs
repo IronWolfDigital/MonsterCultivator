@@ -24,7 +24,8 @@ public class MonsterController : MonoBehaviour
     public string monsterName;
     
     public Transform statsHolder;
-    
+
+    public Transform headStarter;
     public void Init()
     {
         partCount = 0;

@@ -23,9 +23,8 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
         StringBuilder sb = new StringBuilder();
         sb.Append("A village named ");
         sb.Append(villageName);
-        sb.Append(" was attacked by an abomination called ");
-        sb.Append(monsterController.monsterName);
-        
+        sb.Append(" was attacked by an abomination. ");
+
         var biggestStat = monsterController.currentStats.OrderByDescending(o => o.statValue).First();
 
         switch (biggestStat.statType)

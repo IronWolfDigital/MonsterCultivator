@@ -12,7 +12,7 @@ public class VillageDataController : MonoBehaviour
     public int villageIndex;
     public int villageStatsSum = 0;
     public VillageAttackInfoDisplayController villageAttackInfoDisplayController;
-    public TMP_InputField monsterName;
+    //public TMP_InputField monsterName;
     private void Update()
     {
         #if UNITY_EDITOR
@@ -70,7 +70,7 @@ public class VillageDataController : MonoBehaviour
         }
         
         Debug.Log($"Villagers killed {totalVillagersKilled} / {villagesHolder.GetVillages()[villageIndex].villagersCount}");
-        monsterController.monsterName = monsterName.text;
+        //monsterController.monsterName = monsterName.text;
 
         if (totalVillagersKilled >= villagesHolder.GetVillages()[villageIndex].villagersCount)
         {

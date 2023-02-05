@@ -27,7 +27,10 @@ public class PurchaserController : MonoBehaviour
 
     private void Update()
     {
-        soulsDisplay.text = $"Souls: {soulsCount}";
+        if (soulsDisplay != null)
+        {
+            soulsDisplay.text = soulsCount.ToString();
+        }
     }
 
     public void Init()

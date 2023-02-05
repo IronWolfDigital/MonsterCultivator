@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -19,6 +21,9 @@ public class MonsterPartData : MonoBehaviour
     public SpriteRenderer spriteRenderer;
 
     public List<StatMultiplication> statMultiplications;
+
+    public List<DOTweenAnimation> doTweenAnimations = new List<DOTweenAnimation>();
+    public DOTweenAnimation bobbleAnim;
     private void OnEnable()
     {
         currentPrice = initialPrice;
@@ -44,6 +49,27 @@ public class MonsterPartData : MonoBehaviour
         }
         
         PurchaserController.Instance.TryPurchasingObjectPart(this);
+    }
+
+    private void OnMouseEnter()
+    {
+        foreach (var dtanim in doTweenAnimations)
+        {
+            dtanim.DORestart();
+            dtanim.DOPlay();
+        }
+
+        bobbleAnim.DOPlay();
+    }
+
+    private void OnMouseExit()
+    {
+        foreach (var dtanim in doTweenAnimations)
+        {
+            dtanim.DOPlayBackwards();
+        }
+        bobbleAnim.DORestart();
+        bobbleAnim.DOPause();
     }
 
     private void Update()
