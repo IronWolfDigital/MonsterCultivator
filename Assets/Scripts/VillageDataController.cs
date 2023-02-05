@@ -28,7 +28,13 @@ public class VillageDataController : MonoBehaviour
         List<Stats> sortedStats = villagesHolder.GetVillages()[villageIndex].stats.OrderByDescending(o => o.statValue).ToList();
         return sortedStats;
     }
-    
+
+    public List<Stats> SortVillageStatsByType()
+    {
+        List<Stats> sortedStats = villagesHolder.GetVillages()[villageIndex].stats.OrderByDescending(o => o.statValue).ToList();
+        return sortedStats;
+    }
+
     public void AttackVillage(MonsterController monsterController)
     {
         int totalVillagersKilled = 0;
