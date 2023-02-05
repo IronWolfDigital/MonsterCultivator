@@ -151,8 +151,14 @@ public class PartController : MonoBehaviour
         //mask.enabled = true;
         //mask.transform.DOMoveY(mask.transform.position.y - 150, 3f).SetEase(Ease.Linear);
         //Invoke(nameof(DisableMaskInteraction), 0.4f);
+
+       // Invoke(nameof(EnableMouseMove), 0.1f);
     }
 
+    private void EnableMouseMove()
+    {
+        spawnedGameObject.GetComponent<MoveRelativeToMouse>().enabled = true;
+    }
     private void DisableMaskInteraction()
     {
         var mask = spawnedGameObject.GetComponentInChildren<SpriteMask>();

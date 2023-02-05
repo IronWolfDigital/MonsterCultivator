@@ -199,6 +199,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33781708}
   m_CullTransparentMesh: 1
+--- !u!1 &80066773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1961362636676988589, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+  m_PrefabInstance: {fileID: 1143404858}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &92075515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8127042087027774499, guid: 2eed95ba35ac8f44084be2d3a66e8820, type: 3}
@@ -3098,6 +3103,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8127042087472561107}
     - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: maxPartCount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
       propertyPath: currentStats.Array.data[0].statType
       value: 1
       objectReference: {fileID: 0}
@@ -3192,12 +3201,27 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
   m_PrefabInstance: {fileID: 1143404858}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 80066773}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f15a4250417894c4a931d747b6c57f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1143404861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80066773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfa700b32af49e488ba6f2dd1803ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pz: {x: 0, y: 0, z: 0}
+  StartPos: {x: 0, y: 0, z: 0}
+  moveModifier: 0.3
 --- !u!1 &1209596869
 GameObject:
   m_ObjectHideFlags: 0
@@ -5904,6 +5928,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 339050027}
     m_Modifications:
+    - target: {fileID: 1675134498614812998, guid: 38b546442c790824abef9095840cf524, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b67ca994f7c633241a3061f25fd8d425, type: 3}
     - target: {fileID: 1675134498614812998, guid: 38b546442c790824abef9095840cf524, type: 3}
       propertyPath: m_Enabled
       value: 1
