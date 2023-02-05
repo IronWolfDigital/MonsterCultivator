@@ -6,6 +6,7 @@ using System.Text;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using Image = UnityEngine.UI.Image;
 
 public class VillageAttackInfoDisplayController : MonoBehaviour
@@ -18,7 +19,13 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
 
     public Animator fadeAnimator;
     public MonsterController monsterController;
-    public void StartAnimation(MonsterController monsterController, int totalVillagersKilled, int totalVillagers, int soulsGained, string villageName)
+
+    public TMP_Text dayCount;
+
+    public DOTweenAnimation textFadeAnim;
+
+    public Image bgImage;
+    public void StartAnimation(MonsterController monsterController, int totalVillagersKilled, int totalVillagers, int soulsGained, string villageName, int villageIndex)
     {
         StringBuilder sb = new StringBuilder();
         sb.Append("A village named ");
@@ -54,13 +61,16 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
         howManySoulsGained.text = "Souls gained: " + soulsGained.ToString();
 
         PurchaserController.Instance.soulsCount += soulsGained;
-        
+
+        dayCount.text = $"Day {villageIndex + 1}";
         fadeAnimator.SetTrigger("AttackStarted");
     }
 
     public void FullyFadedOut()
     {
         Debug.Log("fULLY FADED OUT");
+        flyAnimation.DORestart();
+        fadeAnimation.DORestart();
         flyAnimation.DOPlay();
         fadeAnimation.DOPlay();
     }
@@ -75,7 +85,10 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
         flyAnimation.DOPlayBackwards();
         fadeAnimation.DOPlayBackwards();
 
-        Invoke(nameof(StartFadingOut), 0.5f);
+        textFadeAnim.DORestart();
+        textFadeAnim.DOPlay();
+
+        Invoke(nameof(StartFadingOut), 1f);
     }
 
     private void StartFadingOut()
@@ -86,5 +99,13 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
     public void AnimationFullyEnded()
     {
         GameController.Instance.NextCycleStarted();
+    }
+
+    private void Start()
+    {
+        dayCount.text = "Day 1";
+
+        textFadeAnim.DORestart();
+        textFadeAnim.DOPlay();
     }
 }

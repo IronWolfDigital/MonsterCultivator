@@ -21,8 +21,6 @@ public class PurchaserController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
     }
 
     private void Update()
