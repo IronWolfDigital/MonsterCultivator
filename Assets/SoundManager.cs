@@ -38,6 +38,14 @@ public class SoundManager : MonoBehaviour
         EffectsSource.clip = clip;
         EffectsSource.Play();
     }
+
+    public void Stop()
+    {
+        if (EffectsSource.clip != null)
+        {
+            EffectsSource.Stop();
+        }
+    }
     // Play a single clip through the music source.
     public void PlayMusic(AudioClip clip)
     {

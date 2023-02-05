@@ -845,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866377204124798239, guid: 1f626d50d7098a54fa2fd84af76a41f1, type: 3}
       propertyPath: m_Volume
-      value: 0.743
+      value: 0.588
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f626d50d7098a54fa2fd84af76a41f1, type: 3}
@@ -950,6 +950,38 @@ PrefabInstance:
       propertyPath: maxPartCount
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: headGrowSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 49ba19878db7cd9429e801455a32437a, type: 3}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: regularGrowSounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: regularGrowSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 920abf1efd526c04d99d1a9eaef147e6, type: 3}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: regularGrowSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d32d070132dd494597c14fd39b3e172, type: 3}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: regularGrowSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: e72e4a3da309cf443a5e60498ff23b27, type: 3}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: regularGrowSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: d98d9127ee61beb43be9c52afdc3258f, type: 3}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: regularGrowSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: c685fe275d2b18a4897163258df60a6d, type: 3}
+    - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
+      propertyPath: regularGrowSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52afca3d83245634697e85718e0d83ae, type: 3}
     - target: {fileID: 1961362636676988590, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
       propertyPath: currentStats.Array.data[0].statType
       value: 1
@@ -1508,6 +1540,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6639163216569434046, guid: a15ca5b59b25b9f4983131302822b7e8, type: 3}
+      propertyPath: bgAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 3363b31ab7ffd9f4d8e6d739b8b86428, type: 3}
+    - target: {fileID: 6639163216569434046, guid: a15ca5b59b25b9f4983131302822b7e8, type: 3}
       propertyPath: monsterController
       value: 
       objectReference: {fileID: 1143404859}
@@ -1629,6 +1665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterController: {fileID: 1143404859}
+  undoButton: {fileID: 8300000, guid: 89a1a583f11c91149a83949f1e6af7fd, type: 3}
 --- !u!61 &2081922900
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2318,6 +2355,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: intSlojnik
       objectReference: {fileID: 0}
+    - target: {fileID: 3603483307788506417, guid: e934b5f1f5e151948bfdde7482bcb509, type: 3}
+      propertyPath: jarClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3603483307788506417, guid: e934b5f1f5e151948bfdde7482bcb509, type: 3}
+      propertyPath: jarClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5730fb0c237c46d459804ebd5ec22c54, type: 3}
+    - target: {fileID: 3603483307788506417, guid: e934b5f1f5e151948bfdde7482bcb509, type: 3}
+      propertyPath: jarClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4041aabda37213a48b6761031c7c552a, type: 3}
+    - target: {fileID: 3603483307788506417, guid: e934b5f1f5e151948bfdde7482bcb509, type: 3}
+      propertyPath: jarClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52d8ed47d8ec3b5409a0debae8b917bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e934b5f1f5e151948bfdde7482bcb509, type: 3}
 --- !u!1 &3603483307788506415 stripped
@@ -2844,6 +2897,22 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5816151258340516162, guid: 91aaef94ccf412a43a9d387ab52c3ed1, type: 3}
+      propertyPath: jarClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816151258340516162, guid: 91aaef94ccf412a43a9d387ab52c3ed1, type: 3}
+      propertyPath: jarClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5730fb0c237c46d459804ebd5ec22c54, type: 3}
+    - target: {fileID: 5816151258340516162, guid: 91aaef94ccf412a43a9d387ab52c3ed1, type: 3}
+      propertyPath: jarClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4041aabda37213a48b6761031c7c552a, type: 3}
+    - target: {fileID: 5816151258340516162, guid: 91aaef94ccf412a43a9d387ab52c3ed1, type: 3}
+      propertyPath: jarClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52d8ed47d8ec3b5409a0debae8b917bd, type: 3}
     - target: {fileID: 5816151259336675860, guid: 91aaef94ccf412a43a9d387ab52c3ed1, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3142,6 +3211,22 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6589315356215539412, guid: 7b1f94a42a6042b4396e29742fc7f218, type: 3}
+      propertyPath: jarClips.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589315356215539412, guid: 7b1f94a42a6042b4396e29742fc7f218, type: 3}
+      propertyPath: jarClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5730fb0c237c46d459804ebd5ec22c54, type: 3}
+    - target: {fileID: 6589315356215539412, guid: 7b1f94a42a6042b4396e29742fc7f218, type: 3}
+      propertyPath: jarClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4041aabda37213a48b6761031c7c552a, type: 3}
+    - target: {fileID: 6589315356215539412, guid: 7b1f94a42a6042b4396e29742fc7f218, type: 3}
+      propertyPath: jarClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 52d8ed47d8ec3b5409a0debae8b917bd, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b1f94a42a6042b4396e29742fc7f218, type: 3}
 --- !u!1 &6589315356215539410 stripped

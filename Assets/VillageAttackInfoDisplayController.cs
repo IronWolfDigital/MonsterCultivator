@@ -25,6 +25,7 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
     public DOTweenAnimation textFadeAnim;
 
     public Image bgImage;
+    public AudioClip bgAudio;
     public void StartAnimation(MonsterController monsterController, int totalVillagersKilled, int totalVillagers, int soulsGained, string villageName, int villageIndex)
     {
         StringBuilder sb = new StringBuilder();
@@ -73,6 +74,7 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
         fadeAnimation.DORestart();
         flyAnimation.DOPlay();
         fadeAnimation.DOPlay();
+        SoundManager.Instance.Play(bgAudio);
     }
     
     private void DeleteMonsterVisuals()
@@ -88,6 +90,7 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
         textFadeAnim.DORestart();
         textFadeAnim.DOPlay();
 
+        SoundManager.Instance.Stop();
         Invoke(nameof(StartFadingOut), 1f);
     }
 

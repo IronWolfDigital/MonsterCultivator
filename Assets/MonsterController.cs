@@ -22,6 +22,8 @@ public class MonsterController : MonoBehaviour
     public int partCount = 0;
     public int maxPartCount;
     public string monsterName;
+    public AudioClip[] regularGrowSounds;
+    public AudioClip headGrowSound;
     
     public Transform statsHolder;
 
@@ -31,20 +33,31 @@ public class MonsterController : MonoBehaviour
         partCount = 0;
     }
 
-    private void Update()
+    /*private void Update()
     {
+        
         int index = 0;
         foreach (var statText in statsHolder.GetComponentsInChildren<TMP_Text>())
         {
             statText.text = currentStats[index].statType.ToString() + ": " +currentStats[index].statValue.ToString();
             index++;
         }
-    }
+    }*/
 
     public bool TryAddPart(MonsterPartData monsterPartData)
     {
         Debug.Log("Called 1.5");
         if (partCount >= maxPartCount) return false;
+
+        if (partCount == 0)
+        {
+            SoundManager.Instance.Play(headGrowSound);
+        }
+        else
+        {
+            SoundManager.Instance.RandomSoundEffect(regularGrowSounds);
+        }
+        
         Debug.Log("Called 2");
         var newPartController = gameObject.AddComponent<PartController>();
         partControllers.Add(newPartController);

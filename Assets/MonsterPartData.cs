@@ -24,6 +24,8 @@ public class MonsterPartData : MonoBehaviour
 
     public List<DOTweenAnimation> doTweenAnimations = new List<DOTweenAnimation>();
     public DOTweenAnimation bobbleAnim;
+
+    public AudioClip[] jarClips;
     private void OnEnable()
     {
         currentPrice = initialPrice;
@@ -53,6 +55,7 @@ public class MonsterPartData : MonoBehaviour
             }
         }
         
+        SoundManager.Instance.RandomSoundEffect(jarClips);
         PurchaserController.Instance.TryPurchasingObjectPart(this);
     }
 
