@@ -25,7 +25,7 @@ public class AttackButton : MonoBehaviour
     }
     private void Update()
     {
-        if (monsterController.partCount == 6 && !buttonFaded)
+        if (monsterController.partCount == monsterController.maxPartCount && !buttonFaded)
         {
             buttonFaded = true;
             button.GetComponent<CanvasRenderer>().SetAlpha(0f);
@@ -35,7 +35,7 @@ public class AttackButton : MonoBehaviour
                 button.interactable = true;
             });
         }
-        else if(monsterController.partCount < 6)
+        else if(monsterController.partCount != monsterController.maxPartCount)
         {
             buttonFaded = false;
             button.image.DOFade(0f, fadeDuration).OnComplete(() =>

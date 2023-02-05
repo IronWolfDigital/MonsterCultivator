@@ -23,23 +23,23 @@ public class VillageAttackInfoDisplayController : MonoBehaviour
         StringBuilder sb = new StringBuilder();
         sb.Append("A village named ");
         sb.Append(villageName);
-        sb.Append(" was attacked by an abomination. ");
+        sb.Append(" was attacked by an abomination");
 
         var biggestStat = monsterController.currentStats.OrderByDescending(o => o.statValue).First();
 
         switch (biggestStat.statType)
         {
             case StatType.STRENGTH:
-                sb.Append(".  In a horrific display of brute strength the creature managed to take the lives of ");
+                sb.Append(". In a horrific display of brute strength the creature managed to take the lives of ");
                 break;
             case StatType.VITALITY:
-                sb.Append(".  In a unending surge of vitality the creature managed to take the lives of ");
+                sb.Append(". In a unending surge of vitality the creature managed to take the lives of ");
                 break;
             case StatType.INTELLIGENCE:
-                sb.Append(".  In a most cunningly malicious way the creature managed to take the lives of ");
+                sb.Append(". In a most cunningly malicious way the creature managed to take the lives of ");
                 break;
             case StatType.AGILITY:
-                sb.Append(".  In a gust of deadly blades the creature managed to take the lives of ");
+                sb.Append(". In a gust of deadly blades the creature managed to take the lives of ");
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
