@@ -18,6 +18,10 @@ public class ChangeImageSpriteOnHover : MonoBehaviour, IPointerEnterHandler, IPo
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
+        if (GameController.Instance.currentState == GameController.GameState.Fighting)
+        {
+            return;
+        }
         var spriteState = new SpriteState();
         spriteState.highlightedSprite = hoverSprite;
         button.spriteState = spriteState;

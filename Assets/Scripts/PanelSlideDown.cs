@@ -24,6 +24,11 @@ public class PanelSlideDown : MonoBehaviour
 
     private void ToggleSlide()
     {
+        if (GameController.Instance.currentState == GameController.GameState.Fighting)
+        {
+            return;
+        }
+        
         if (openPanel != null)
         {
             Debug.Log(openPanel.gameObject.name);

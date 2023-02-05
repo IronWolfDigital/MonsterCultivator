@@ -1967,7 +1967,7 @@ MonoBehaviour:
   autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 0
-  endValueV3: {x: 0, y: 0, z: 1}
+  endValueV3: {x: 0, y: 0, z: 1.5}
   endValueV2: {x: 0, y: 0}
   endValueColor: {r: 1, g: 1, b: 1, a: 1}
   endValueString: 
@@ -3184,15 +3184,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1961362637441530415, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.999962
+      value: 0.99991435
       objectReference: {fileID: 0}
     - target: {fileID: 1961362637441530415, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.008726465
+      value: -0.013089582
       objectReference: {fileID: 0}
     - target: {fileID: 1961362637441530415, guid: fa8d9465d33953749930e84ffb18567f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -1
+      value: -1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa8d9465d33953749930e84ffb18567f, type: 3}

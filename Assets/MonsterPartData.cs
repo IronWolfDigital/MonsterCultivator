@@ -33,6 +33,11 @@ public class MonsterPartData : MonoBehaviour
     {
         Debug.Log("cLICKED");
 
+        if (GameController.Instance.currentState == GameController.GameState.Fighting)
+        {
+            return;
+        }
+        
         if (isLocked)
         {
             if (PurchaserController.Instance.soulsCount >= unlockPrice)
@@ -53,6 +58,10 @@ public class MonsterPartData : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (GameController.Instance.currentState == GameController.GameState.Fighting)
+        {
+            return;
+        }
         foreach (var dtanim in doTweenAnimations)
         {
             dtanim.DORestart();

@@ -20,12 +20,20 @@ public class AttackButton : MonoBehaviour
         button.onClick.AddListener(ButtonClicked);
     }
     void ButtonClicked()
-    {     
+    {
+        if (GameController.Instance.currentState == GameController.GameState.Fighting)
+        {
+            return;
+        }
         gameController.Attack();
         
     }
     private void Update()
     {
+        if (GameController.Instance.currentState == GameController.GameState.Fighting)
+        {
+            return;
+        }
         if (monsterController.partCount == monsterController.maxPartCount && !buttonFaded)
         {
             buttonFaded = true;
