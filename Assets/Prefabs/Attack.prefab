@@ -136,7 +136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 2322775214370972401}
-  fadeDuration: 1
+  iconFadeDuration: 1
+  textFadeDuration: 3
   monsterController: {fileID: 0}
   gameController: {fileID: 0}
 --- !u!1 &2322775215141213707
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_text: SLAUGHTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bbf0fa2ad14b7fa43bb28388bfcf0aab, type: 2}
-  m_sharedMaterial: {fileID: -8926690885704263721, guid: bbf0fa2ad14b7fa43bb28388bfcf0aab, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: c298a0f0f1be2124cae14f3f212f6458, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
