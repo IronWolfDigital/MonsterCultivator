@@ -4962,7 +4962,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: db58a7db9be6f7e4697d9f92be775d5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5779,6 +5779,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 339050027}
     m_Modifications:
     - target: {fileID: 903819458235937560, guid: 8029f79885c17484181fba1f5e1e1e19, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 903819458235937560, guid: 8029f79885c17484181fba1f5e1e1e19, type: 3}
       propertyPath: m_ShadowIntensity
       value: 0.605
       objectReference: {fileID: 0}
@@ -5864,6 +5868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 339050027}
     m_Modifications:
+    - target: {fileID: 1675134498614812998, guid: 38b546442c790824abef9095840cf524, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1675134498614812999, guid: 38b546442c790824abef9095840cf524, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5953,6 +5961,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8588379202123176782}
     m_Modifications:
+    - target: {fileID: 2391646675305257896, guid: fce83e623f005db4fbcabedb9af70edf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2391646675305257897, guid: fce83e623f005db4fbcabedb9af70edf, type: 3}
       propertyPath: m_Name
       value: slojnikToken (2)
@@ -6039,6 +6051,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8588379202123176782}
     m_Modifications:
+    - target: {fileID: 3164647816918873624, guid: 2d7a3c55cc0de1645a75fb137244b9cf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3164647816918873625, guid: 2d7a3c55cc0de1645a75fb137244b9cf, type: 3}
       propertyPath: m_Name
       value: slojnikToken (1)
@@ -6108,6 +6124,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3603483306187054092, guid: e934b5f1f5e151948bfdde7482bcb509, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3603483306187054093, guid: e934b5f1f5e151948bfdde7482bcb509, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -6376,6 +6396,10 @@ PrefabInstance:
     - target: {fileID: 3665980789305706561, guid: ff1e642fd6f39a741a5098ea83a9e017, type: 3}
       propertyPath: m_Name
       value: Fog
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665980789305706561, guid: ff1e642fd6f39a741a5098ea83a9e017, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5120969206254471399, guid: ff1e642fd6f39a741a5098ea83a9e017, type: 3}
       propertyPath: lengthInSec
@@ -6781,6 +6805,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.05
       objectReference: {fileID: 0}
+    - target: {fileID: 5816151259336675861, guid: 91aaef94ccf412a43a9d387ab52c3ed1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5816151259336675862, guid: 91aaef94ccf412a43a9d387ab52c3ed1, type: 3}
       propertyPath: m_Name
       value: spdSlojnik
@@ -7054,6 +7082,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -13.209
       objectReference: {fileID: 0}
+    - target: {fileID: 6589315355954364039, guid: 7b1f94a42a6042b4396e29742fc7f218, type: 3}
+      propertyPath: m_SortingOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b1f94a42a6042b4396e29742fc7f218, type: 3}
 --- !u!1 &6589315356215539410 stripped
@@ -7259,6 +7291,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 339050027}
     m_Modifications:
+    - target: {fileID: 6870751276071908540, guid: 96081d1511d76f5498a9f5909c0b3fee, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6870751276071908541, guid: 96081d1511d76f5498a9f5909c0b3fee, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7333,6 +7369,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 339050027}
     m_Modifications:
+    - target: {fileID: 7200313716508373496, guid: 3936918855904a04ba8b1294ddc82ec8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7200313716508373496, guid: 3936918855904a04ba8b1294ddc82ec8, type: 3}
       propertyPath: m_ShadowIntensity
       value: 1
@@ -7531,6 +7571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7309462666219159334, guid: 12d5820ab6b8f2445802b74e77ef7ee4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7309462666219159335, guid: 12d5820ab6b8f2445802b74e77ef7ee4, type: 3}
       propertyPath: m_Name
       value: slojnikToken
@@ -7706,6 +7750,14 @@ PrefabInstance:
     - target: {fileID: 8588379202908159829, guid: 8f3f9ae2bc0216e45bab90543a4fcbc0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588379202908159834, guid: 8f3f9ae2bc0216e45bab90543a4fcbc0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588379202908159834, guid: 8f3f9ae2bc0216e45bab90543a4fcbc0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8588379202908159835, guid: 8f3f9ae2bc0216e45bab90543a4fcbc0, type: 3}
       propertyPath: m_Name

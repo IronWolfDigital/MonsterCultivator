@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8889805817385825436}
   - component: {fileID: 8889805817385825437}
   - component: {fileID: -1658832755732596035}
+  - component: {fileID: -6800196578604503970}
   m_Layer: 0
   m_Name: Savickas_Arm_L_Snap
   m_TagString: Untagged
@@ -65,6 +66,27 @@ MonoBehaviour:
   pz: {x: 0, y: 0, z: 0}
   StartPos: {x: 0, y: 0, z: 0}
   moveModifier: 0.3
+--- !u!50 &-6800196578604503970
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889805817385825439}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8889805817532166482
 GameObject:
   m_ObjectHideFlags: 0

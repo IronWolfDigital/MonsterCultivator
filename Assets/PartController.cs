@@ -195,8 +195,10 @@ public class PartController : MonoBehaviour
             //do rigidbody
             if (spawnedGameObject != null)
             {
+                spawnedGameObject.GetComponent<MoveRelativeToMouse>().enabled = false;
                 var rb = spawnedGameObject.GetComponent<Rigidbody2D>();
                 rb.isKinematic = false;
+                rb.velocity = Vector3.zero;
                 rb.AddForce(new Vector3(Random.Range(-6f, 6f), Random.Range(0.5f, 1.2f), 0f), ForceMode2D.Impulse);
                 rb.AddTorque(Random.Range(-3, 3), ForceMode2D.Impulse);
             }
